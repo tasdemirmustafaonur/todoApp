@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todo-App</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css"
+    />
+    <link rel="stylesheet" href="css/mymain.css" />
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  </head>
+
+  <body>
+    <div class="container-fluid">
+      <header>
+        <div class="logo">
+          <i class="fas fa-bullseye"><span>Todo App</span></i>
+        </div>
+      </header>
+      <section class="main">
+        <div class="row">
+          <div id="sidebar" class="col-2">
+            <div class="category-section">
+              <h4>Kategori Yönetimi</h4>
+              <form id="addCategoryForm">
+                <div class="category-add">
+                  <input
+                    id="txtCategoryName"
+                    type="text"
+                    class="input-text"
+                    placeholder="Yeni Kategori İsmi giriniz..."
+                  />
+                  <button type="submit" class="btn">
+                    <i class="fas fa-plus"></i>Kategori Ekle
+                  </button>
+                </div>
+              </form>
+
+              <hr />
+              <div class="category-list">
+                <ul id="categories">
+                  <li>
+                    Tüm Görevler
+                    <a href="#"></a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col-10 pd-20">
+            <div class="row">
+              <div class="col-md-12 category-name">
+                <h1 id="taskName">Tüm Görevler</h1>
+                <div class="add-task">
+                  <button
+                    id="addNewTask"
+                    type="button"
+                    class="btn"
+                    data-bs-toggle="modal"
+                    data-bs-target="#exampleModal"
+                  >
+                    <i class="fas fa-plus"></i>Yeni Görev
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div id="todosContainer" class="row"></div>
+          </div>
+        </div>
+      </section>
+      <div
+        class="modal fade"
+        id="exampleModal"
+        tabindex="-1"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Görev Oluştur</h5>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">
+              <form id="todoModal" class="was-validated">
+                <div class="mb-3">
+                  <label for="title-modal" class="col-form-label">Başlık</label>
+                  <input
+                    id="titleModal"
+                    type="text"
+                    class="form-control is-invalid"
+                    required
+                  />
+                </div>
+                <div class="mb-3">
+                  <label for="descriptionModal" class="col-form-label"
+                    >Açıklama</label
+                  >
+                  <textarea
+                    id="descriptionModal"
+                    class="form-control is-invalid"
+                    required
+                  ></textarea>
+                </div>
+                <div class="mb-3">
+                  <label for="category" class="col-form-label">Kategori</label>
+                  <select
+                    class="form-select"
+                    aria-label="Default select example"
+                    id="categoryModal"
+                    required
+                  ></select>
+                </div>
+                <div class="mb-3">
+                  <label for="message-text" class="col-form-label"
+                    >Önemlilik Derecesi</label
+                  >
+                  <select
+                    class="form-select"
+                    aria-label="Default select example"
+                    id="importanceModal"
+                    required
+                  >
+                    <option value="" selected disabled>
+                      Lütfen bir değer seçiniz..
+                    </option>
+                    <option value="Yüksek">Yüksek</option>
+                    <option value="Normal">Normal</option>
+                    <option value="Düşük">Düşük</option>
+                  </select>
+                </div>
+                <div class="modal-footer">
+                  <button
+                    type="button"
+                    class="btn btn-secondary"
+                    data-bs-dismiss="modal"
+                  >
+                    Kapat
+                  </button>
+                  <button
+                    id="modalButton"
+                    type="button"
+                    class="btn btn-primary"
+                  >
+                    Yeni Görev Ekle
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="container-background"></div>
+      <script src="js/ls.js"></script>
+      <script src="js/ui.js"></script>
+      <script src="js/app.js"></script>
+    </div>
+  </body>
+</html>
