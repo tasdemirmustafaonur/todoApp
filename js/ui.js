@@ -138,6 +138,7 @@ class UI {
   }
 
   deleteTodo(e) {
+    const isDeleted = false;
     Swal.fire({
       title: "Görevi silmek istediğine emin misin?",
       text: "Dikkat! Bu işlemi geri alamazsınız!",
@@ -152,8 +153,10 @@ class UI {
         e.target.parentElement.parentElement.parentElement.parentElement.parentElement.remove();
 
         Swal.fire("Silindi!", "Görev başarıyla silinmiştir.", "success");
+        isDeleted = true;
       }
     });
+    return isDeleted;
   }
   categoryInputClear(e) {
     this.input.value = "";

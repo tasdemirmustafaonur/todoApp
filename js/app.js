@@ -155,11 +155,12 @@ function addNewTodoItem(e) {
 
 function deleteTodoItem(e) {
   if (e.target.className === "far fa-trash-alt") {
-    ui.deleteTodo(e);
-    ls.deleteTodoFromLS(
-      e.target.parentElement.parentElement.nextSibling.nextSibling.textContent.trim(),
-      ls.todos
-    );
+    if (ui.deleteTodo(e)) {
+      ls.deleteTodoFromLS(
+        e.target.parentElement.parentElement.nextSibling.nextSibling.textContent.trim(),
+        ls.todos
+      );
+    }
   }
 
   e.preventDefault();
