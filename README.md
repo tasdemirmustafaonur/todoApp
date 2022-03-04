@@ -6,7 +6,7 @@ Local storage tabanlı Javascript ile yazılmış kolay yönetimli TODO projesid
 ## Kolay Kategori Yönetimi
 Tek bir tuşla istediğiniz kadar kategori yaratabilir ve tüm kategorilerinize **"Kategori Yönetimi"** sekmesi altından erişebilirsiniz.
 
-![](/kategori-yonetimi/kategori-yonetimi.png)
+![](/assets/kategori-yonetimi.png)
 
 ## Detaylı Görev Ekleme
 Görevlerinizi detaylı olarak oluşturma imkanı!
