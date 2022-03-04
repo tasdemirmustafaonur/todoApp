@@ -48,7 +48,8 @@ function loadTodoItems() {
         todo.todoDescription,
         todo.todoCategory,
         todo.todoImportance,
-        todo.todoDate
+        todo.todoDate,
+        todo.todoTime
       );
     });
   }
