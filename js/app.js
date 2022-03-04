@@ -155,12 +155,25 @@ function addNewTodoItem(e) {
 
 function deleteTodoItem(e) {
   if (e.target.className === "far fa-trash-alt") {
-    if (ui.deleteTodo(e)) {
-      ls.deleteTodoFromLS(
-        e.target.parentElement.parentElement.nextSibling.nextSibling.textContent.trim(),
-        ls.todos
-      );
-    }
+    Swal.fire({
+      title: "Görevi silmek istediğine emin misin?",
+      text: "Dikkat! Bu işlemi geri alamazsınız!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Evet, sil!",
+      cancelButtonText: "Hayır",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        e.target.parentElement.parentElement.parentElement.parentElement.parentElement.remove();
+        ls.deleteTodoFromLS(
+          e.target.parentElement.parentElement.nextSibling.nextSibling.textContent.trim(),
+          ls.todos
+        );
+        Swal.fire("Silindi!", "Görev başarıyla silinmiştir.", "success");
+      }
+    });
   }
 
   e.preventDefault();
